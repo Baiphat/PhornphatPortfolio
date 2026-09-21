@@ -2,7 +2,7 @@ export const LANGS = ["en", "th"] as const;
 export type Lang = (typeof LANGS)[number];
 
 const en = {
-  navHome: "Home111",
+  navHome: "Home",
   navAbout: "About me",
   navSkills: "Skills",
   navContact: "Contact",
