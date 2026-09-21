@@ -25,7 +25,7 @@ const en = {
   btnCopy: "Copy",
   btnCopied: "Copied!",
   btnCopyFailed: "Failed",
-  footerSub: "I LOVE CLAUDE",
+  footerSub: "Designed & Developed with Passion",
   ageSuffix: "years",
 };
 
