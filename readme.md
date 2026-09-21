@@ -1,24 +1,59 @@
-# Phornphat — เว็บแนะนำตัว
+# Phornphat Portfolio (Next.js + TypeScript + Tailwind CSS)
 
-เว็บ HTML + CSS + JS ล้วน (ไม่มี framework, ไม่มีไลบรารีภายนอก) ฟอนต์ LINE Seed Sans TH
+เว็บแนะนำตัวหน้าเดียว ย้ายมาจากเวอร์ชัน HTML/CSS/JS เดิม หน้าตาและพฤติกรรมเหมือนเดิมทุกอย่าง
+(สลับภาษา EN/TH, แถบเมนูเลื่อน, ดาวร่วง, การ์ด, ปุ่ม Copy, About เบลอตอนเลื่อนผ่าน)
 
-## แก้ข้อมูล
-แก้ที่ `js/data.js` ไฟล์เดียว (ชื่อ, ชื่อเล่น, สถานศึกษา, ปีเดือนเกิดสำหรับคำนวณอายุ, IG, อีเมล)
-ส่วนที่ไม่ใช่ข้อมูล เช่น ไอคอนทักษะ อยู่ใน `index.html` (หมวด Skills) และไฟล์ภาพอยู่ใน `assets/`
+## เริ่มใช้งาน
+ต้องมี [Node.js](https://nodejs.org) 20.9 ขึ้นไป
 
-## ดูผลบนเครื่อง
-เปิด `index.html` ได้เลย หรือรัน `python3 -m http.server 8000` แล้วเข้า http://localhost:8000
+```bash
+npm install
+npm run dev        # เปิด http://localhost:3000
+npm run build      # ทดสอบ build + เช็ก TypeScript ก่อนขึ้นเว็บ
+```
 
-## เอาขึ้นเว็บ (GitHub → Cloudflare Pages)
-1. สร้าง repo บน GitHub แล้วอัปโหลดทั้งโฟลเดอร์นี้ (เปิด 2FA ของบัญชีก่อน)
-2. Cloudflare Dashboard → Workers & Pages → Create → Pages → Connect to Git → เลือก repo
-3. Build command: ว่างไว้ / Output directory: `/` (ราก) → Deploy
-4. ทุกครั้งที่ push ขึ้น GitHub เว็บจะอัปเดตเอง
+## แก้ข้อมูลตรงไหน
+| อยากแก้ | ไฟล์ |
+|---|---|
+| ชื่อ, ชื่อเล่น, โรงเรียน, ปี/เดือนเกิด (คำนวณอายุ), IG, อีเมล | `src/data/site.ts` |
+| ข้อความ EN/TH ทั้งหมด (เมนู, คำแนะนำตัว, ปุ่ม) | `src/data/i18n.ts` |
+| รายการทักษะ/ไอคอน | `src/data/skills.ts` |
+| รูป, ไอคอน | `public/assets/` |
+| สี, ระยะ, แอนิเมชัน (สไตล์เดิมทั้งหมด) | `src/app/globals.css` |
 
-ไฟล์ `_headers` จะถูก Cloudflare Pages ใช้ตั้งค่า security headers ให้อัตโนมัติ
+## โครงสร้าง
+```
+src/
+  app/          layout.tsx (ฟอนต์, metadata, โครงหน้า) · page.tsx · globals.css
+  components/   Nav, Hero, About, Skills, Contact, Footer, StarField, LanguageProvider ...
+  data/         site.ts · i18n.ts · skills.ts
+  hooks/        useScrollSpy.ts · useScrollFade.ts
+  lib/          age.ts · scroll.ts
+  fonts/        LINE Seed Sans TH (โหลดผ่าน next/font จากโดเมนตัวเอง)
+  proxy.ts      Content-Security-Policy แบบ nonce
+next.config.ts  security headers อื่น ๆ
+```
 
-## ความปลอดภัยที่ทำไว้
-- ไม่มี inline script / inline style และไม่โหลดอะไรจากภายนอก → ใช้ Content-Security-Policy แบบเข้มได้ (ทั้งใน `_headers` และ meta ใน `index.html`)
-- ลิงก์ภายนอกใช้ `rel="noopener noreferrer"`
-- อีเมลถูกประกอบด้วย JS จากข้อมูลแยก 2 ส่วน ลดการโดนบอทเก็บ
-- ไม่มีฟอร์ม ไม่มี backend ไม่มี API key
+## Tailwind ใช้ยังไงในโปรเจกต์นี้
+- ติดตั้ง Tailwind v4 แล้ว (`@tailwindcss/postcss`) และตั้ง token สีไว้ใน `@theme` ของ `globals.css`
+  (`bg-navy-deep`, `text-navy`, `text-brand` ฯลฯ)
+- **ปิด preflight** (reset ของ Tailwind) ไว้ เพราะ CSS เดิมมี reset ของตัวเอง ทำให้หน้าตาเหมือนเว็บเดิมทุกพิกเซล
+  อยากเปิดให้เปลี่ยนสองบรรทัด `@import "tailwindcss/theme.css"` และ `.../utilities.css` เป็น `@import "tailwindcss";`
+- `Footer` และลิงก์ "Skip to content" เขียนด้วย Tailwind utility ล้วน ส่วนที่เหลือยังเป็น class CSS เดิม
+  (ระบบสเกล `--u` ของดีไซน์ 1920px และเอฟเฟกต์กระจก) แนะนำให้ย้ายทีละคอมโพเนนต์เมื่อพร้อม
+  เพื่อไม่ให้หน้าตาเพี้ยนโดยไม่รู้ตัว
+
+## ความปลอดภัย
+- `src/proxy.ts` ตั้ง CSP แบบ nonce (สคริปต์ที่ไม่มี nonce ตรงกันจะถูกบล็อก) — Next.js 15 ให้เปลี่ยนชื่อไฟล์เป็น `middleware.ts` และชื่อฟังก์ชันเป็น `middleware`
+- `layout.tsx` เรียก `await connection()` เพื่อให้หน้าเรนเดอร์ใหม่ทุกครั้ง (จำเป็นสำหรับ nonce)
+- **อย่าใส่ `style={{...}}` ใน JSX** เพราะ CSP บล็อก inline style ให้ใช้ class (Tailwind หรือ CSS) แทน
+- ไม่ใช้ `next/image` โดยตั้งใจ (มันใส่ inline style) รูปทั้งหมดใช้ `<img>` ธรรมดา และเป็น WebP อยู่แล้ว
+- อีเมลถูกประกอบหลังหน้าโหลดบนเบราว์เซอร์ (`[at]` `[dot]` ก่อน) ลดการโดนบอทเก็บ
+- เปิด Dependabot ใน GitHub (Settings → Advanced Security) ให้เตือนเมื่อแพ็กเกจมีช่องโหว่
+- ตรวจผลที่ https://securityheaders.com
+
+## ขึ้นเว็บด้วย Vercel
+1. Vercel → โปรเจกต์ → Settings → Build and Deployment → **Framework Preset = Next.js**
+   (ถ้าเคยตั้งเป็น Other ต้องเปลี่ยน) และปิด override ของ Output Directory / Build Command
+2. ลบ `vercel.json` เก่า (header ตั้งใน `next.config.ts` และ `src/proxy.ts` แล้ว)
+3. push ขึ้น GitHub — Vercel build ให้เอง
