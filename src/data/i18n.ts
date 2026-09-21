@@ -1,12 +1,8 @@
-/*
-  ข้อความ 2 ภาษา — เพิ่ม/แก้ข้อความที่นี่
-  ถ้าเพิ่ม key ใน en แล้วลืมเพิ่มใน th TypeScript จะแจ้ง error ให้ทันที
-*/
 export const LANGS = ["en", "th"] as const;
 export type Lang = (typeof LANGS)[number];
 
 const en = {
-  navHome: "Home",
+  navHome: "Home111",
   navAbout: "About me",
   navSkills: "Skills",
   navContact: "Contact",
@@ -24,7 +20,7 @@ const en = {
   contactTitle: "Contact",
   btnCopy: "Copy",
   btnCopied: "Copied!",
-  btnCopyFailed: "Failed",
+  btnCopyFailed: "Failed",  
   footerSub: "Designed & Developed with Passion",
   ageSuffix: "years",
 };
