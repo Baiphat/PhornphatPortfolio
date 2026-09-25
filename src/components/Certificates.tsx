@@ -22,10 +22,6 @@ export function Certificates() {
           <h2 id="certificates-title" className="outline sec-title certificates__title">
             {t.certificatesTitle}
           </h2>
-          <span className="certificates__badge">
-            <GradCapIcon />
-            {t.certificatesBadge}
-          </span>
         </div>
         <p className="certificates__subtitle">{t.certificatesSubtitle}</p>
 
