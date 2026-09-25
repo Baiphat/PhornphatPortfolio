@@ -49,8 +49,7 @@ export const viewport: Viewport = {
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
-  // บังคับให้หน้าเรนเดอร์ใหม่ทุกครั้งที่มีคนเข้า เพื่อให้ Next.js ใส่ nonce ของ CSP ลงในสคริปต์ได้
-  // (ดู src/proxy.ts) — เว็บหน้าเดียวขนาดนี้ไม่มีผลต่อความเร็วที่เห็นได้
+
   await connection();
 
   return (

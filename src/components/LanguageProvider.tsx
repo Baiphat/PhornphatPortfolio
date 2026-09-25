@@ -30,7 +30,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       const saved = window.localStorage.getItem(STORAGE_KEY);
       if (saved === "en" || saved === "th") setLang(saved);
     } catch {
-      /* ถ้าอ่าน localStorage ไม่ได้ (เช่นโหมดส่วนตัวบางแบบ) ก็ใช้ EN ต่อไป */
     }
   }, []);
 

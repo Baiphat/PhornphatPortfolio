@@ -4,7 +4,7 @@ import type { MouseEvent } from "react";
   ตัวกลางเก็บ "หัวข้อที่กำลังดูอยู่" (ใช้ร่วมกันระหว่างเมนู ปุ่มใน Hero และตัวจับการเลื่อน)
   ใช้ร่วมกับ useSyncExternalStore ใน hooks/useScrollSpy.ts
 */
-export const SECTION_IDS = ["home", "about", "skills", "contact"] as const;
+export const SECTION_IDS = ["home", "about", "skills", "certificates", "contact"] as const;
 export type SectionId = (typeof SECTION_IDS)[number];
 
 let active: SectionId = "home";

@@ -11,6 +11,7 @@ const NAV_ITEMS: { id: SectionId; label: MessageKey }[] = [
   { id: "home", label: "navHome" },
   { id: "about", label: "navAbout" },
   { id: "skills", label: "navSkills" },
+  { id: "certificates", label: "navCertificates" },
   { id: "contact", label: "navContact" },
 ];
 

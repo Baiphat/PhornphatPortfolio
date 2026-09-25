@@ -23,6 +23,13 @@ const en = {
   btnCopyFailed: "Failed",  
   footerSub: "Designed & Developed with Passion",
   ageSuffix: "years",
+  certificatesBadge: "My Learning Journey",
+  certificatesSubtitle: "Demonstrating continuous learning and skill development.",
+  certificatesVerify: "Verify",
+  certificatesShowAll: "View All Certificates",
+  certificatesShowLess: "Show Less",
+  navCertificates: "Certificates",
+  certificatesTitle: "Certificates",
 };
 
 export type MessageKey = keyof typeof en;
@@ -50,6 +57,13 @@ const th: Messages = {
   btnCopyFailed: "ไม่สำเร็จ",
   footerSub: "ออกแบบและพัฒนาด้วยความตั้งใจ",
   ageSuffix: "ปี",
+  certificatesBadge: "เส้นทางการเรียนรู้ของฉัน",
+  certificatesSubtitle: "แสดงความตั้งใจเรียนรู้และพัฒนาทักษะอย่างต่อเนื่อง",
+  certificatesVerify: "ตรวจสอบ",
+  certificatesShowAll: "ดูเกียรติบัตรทั้งหมด",
+  certificatesShowLess: "ย่อกลับ",
+  navCertificates: "เกียรติบัตร",
+  certificatesTitle: "เกียรติบัตร",
 };
 
 export const messages: Record<Lang, Messages> = { en, th };
