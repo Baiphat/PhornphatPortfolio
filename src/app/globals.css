@@ -71,74 +71,11 @@ a:focus-visible, .btn:focus-visible {
   background: linear-gradient(180deg, var(--navy) 0%, var(--blue) 100%);
 }
 
-/* ---------- STAR ANIMATION ---------- */
-.stars {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.star {
-  position: absolute;
-  width: var(--sz);
-  height: var(--sz);
-  background: url("/assets/icons/star.svg") center / contain no-repeat;
-  will-change: transform, opacity;
-  animation:
-    star-fall var(--dur, 55s) linear var(--delay, 0s) infinite,
-    star-twinkle 6s ease-in-out var(--delay, 0s) infinite alternate;
-}
-
-@keyframes star-fall {
-  0% {
-    transform: translate3d(0, -10vh, 0);
-    opacity: 0;
-  }
-  15% { opacity: 0.95; }
-  85% { opacity: 0.95; }
-  100% {
-    transform: translate3d(var(--dx, 0px), 105vh, 0);
-    opacity: 0;
-  }
-}
-
-@keyframes star-twinkle {
-  from { opacity: 0.25; }
-  to   { opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .star { animation: none; opacity: .8; }
-}
-
-.s1  { left: 5%;  --sz: 18px; --dur: 52s; --delay: 0s;     --dx: 15px; }
-.s2  { left: 12%; --sz: 12px; --dur: 64s; --delay: -15s;   --dx: -10px; }
-.s3  { left: 20%; --sz: 22px; --dur: 48s; --delay: -8s;    --dx: 20px; }
-.s4  { left: 28%; --sz: 10px; --dur: 70s; --delay: -30s;   --dx: -15px; }
-.s5  { left: 35%; --sz: 16px; --dur: 58s; --delay: -22s;   --dx: 10px; }
-.s6  { left: 42%; --sz: 24px; --dur: 45s; --delay: -5s;    --dx: -5px; }
-.s7  { left: 50%; --sz: 14px; --dur: 65s; --delay: -35s;   --dx: 25px; }
-.s8  { left: 58%; --sz: 18px; --dur: 55s; --delay: -18s;   --dx: -20px; }
-.s9  { left: 65%; --sz: 11px; --dur: 68s; --delay: -12s;   --dx: 12px; }
-.s10 { left: 72%; --sz: 20px; --dur: 50s; --delay: -26s;   --dx: -8px; }
-.s11 { left: 80%; --sz: 13px; --dur: 62s; --delay: -40s;   --dx: 18px; }
-.s12 { left: 86%; --sz: 22px; --dur: 46s; --delay: -10s;   --dx: -12px; }
-.s13 { left: 92%; --sz: 15px; --dur: 60s; --delay: -24s;   --dx: 8px; }
-.s14 { left: 97%; --sz: 10px; --dur: 72s; --delay: -14s;   --dx: -15px; }
-.s15 { left: 15%; --sz: 16px; --dur: 54s; --delay: -28s;   --dx: 10px; }
-
-@media (min-width: 1024px) {
-  .s1, .s3, .s6, .s8, .s10, .s12 { --sz: calc(24 * var(--u)); }
-  .s2, .s4, .s5, .s7, .s9, .s11, .s13, .s14, .s15 { --sz: calc(14 * var(--u)); }
-}
-
 .glow {
   position: fixed; left: 0; right: 0; z-index: 5; pointer-events: none;
   height: var(--glow-h);
   bottom: calc(var(--glow-h) * -.3835);
-  background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, #fff 100%);
+  background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, #000000 100%);
   filter: blur(var(--glow-blur));
 }
 
