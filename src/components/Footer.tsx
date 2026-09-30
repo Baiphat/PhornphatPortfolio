@@ -26,7 +26,7 @@ function GitHubIcon() {
 
 const socials = [
   { id: "instagram", label: "Instagram", href: "https://www.instagram.com/nxbulapp_/", icon: <InstagramIcon /> },
-  { id: "facebook", label: "Facebook", href: "#", icon: <FacebookIcon /> },
+  { id: "facebook", label: "Facebook", href: "https://www.facebook.com/PhornphatLepkhut", icon: <FacebookIcon /> },
   { id: "github", label: "GitHub", href: "https://github.com/Baiphat", icon: <GitHubIcon /> },
 ] as const;
 
