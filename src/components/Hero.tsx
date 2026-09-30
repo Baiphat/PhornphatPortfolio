@@ -1,38 +1,28 @@
-"use client";
+import { d } from "@/lib/d";
 
-import { useLang } from "@/components/LanguageProvider";
-import { site } from "@/data/site";
-import { goTo } from "@/lib/scroll";
+const stats = [[10, "Game Dev"], [2, "Project"], [5, "Web Design"]] as const;
 
 export function Hero() {
-  const { t } = useLang();
-
   return (
-    <section id="home" className="sec hero" aria-labelledby="hero-title">
-      <div className="stage">
-        <div className="hero__text">
-          <h1 id="hero-title" className="hero__title">
-            <span className="outline hero__hello">{t.heroHello}</span>
-            <span className="hero__name">{site.firstName}</span>
-          </h1>
-          <p className="hero__lead">{t.tagline}</p>
-          <div className="hero__actions">
-            <a className="btn" href="#about" onClick={goTo("about")}>
-              {t.btnAbout}
-            </a>
-            <a className="btn" href="#contact" onClick={goTo("contact")}>
-              {t.btnContact}
-            </a>
+    <section id="home" className="hero">
+      <div className="wrap hero-in">
+        <div>
+          <p className="hi rise" style={d(".05s")}>Hi I’m</p>
+          <h1 className="grad rise" style={d(".15s")}>Phornphat</h1>
+          <p className="lead rise" style={d(".3s")}>A Frontend Developer &amp; UX/UI Designer crafting seamless digital experiences, with a passion for game dev and hardware circuits</p>
+          <div className="win stats rise" style={d(".45s")}>
+            <div className="wbar"><span className="dots"><i /><i /><i /></span></div>
+            <div className="stat-row">
+              {stats.map(([n, l]) => (
+                <div key={l}><b data-count={n}>0+</b><span>{l}</span></div>
+              ))}
+            </div>
           </div>
         </div>
-        <img
-          className="hero__photo"
-          src="/assets/img/home.webp"
-          width={613}
-          height={727}
-          alt="Phornphat holding a trophy and wearing a 10K mini-marathon medal"
-          fetchPriority="high"
-        />
+        <div className="photo rise" style={d(".3s")}>
+          <div className="disc" />
+          <div className="cut"><img src="/assets/img/hero.png" alt="Phornphat" /></div>
+        </div>
       </div>
     </section>
   );

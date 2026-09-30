@@ -1,9 +1,9 @@
 import { About } from "@/components/About";
-import { Contact } from "@/components/Contact";
+import { Certificates } from "@/components/Certificates";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Skills } from "@/components/Skills";
-import { Certificates } from "@/components/Certificates";
+import { Work } from "@/components/Work";
 
 export default function HomePage() {
   return (
@@ -13,7 +13,7 @@ export default function HomePage() {
         <About />
         <Skills />
         <Certificates />
-        <Contact />
+        <Work />
       </main>
       <Footer />
     </>

@@ -1,14 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { connection } from "next/server";
 import type { ReactNode } from "react";
-import { LanguageProvider } from "@/components/LanguageProvider";
+import { FX } from "@/components/FX";
 import { Nav } from "@/components/Nav";
-import { ScrollSpy } from "@/components/ScrollSpy";
-import { StarField } from "@/components/StarField";
 import "./globals.css";
 
-/* ฟอนต์ LINE Seed Sans TH — Next.js ฝังและโหลดจากโดเมนตัวเอง (ไม่พึ่งเว็บภายนอก) */
 const lineSeed = localFont({
   src: [
     { path: "../fonts/LINESeedSansTH-Thin.woff2", weight: "100", style: "normal" },
@@ -22,53 +18,35 @@ const lineSeed = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Phornphat Lepkhrut | Web UX/UI & Graphic Designer",
-  description:
-    "Phornphat Lepkhrut — a Web UX/UI and Graphic Designer crafting seamless digital experiences.",
+  title: "Phornphat Lepkhrut | Frontend Developer & UX/UI Designer",
+  description: "Phornphat Lepkhrut — Frontend Developer & UX/UI Designer crafting seamless digital experiences.",
   referrer: "strict-origin-when-cross-origin",
-  openGraph: {
-    type: "website",
-    title: "Phornphat Lepkhrut | Web UX/UI & Graphic Designer",
-    description: "A Web UX/UI and Graphic Designer crafting seamless digital experiences.",
-  },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/assets/favicon-32.png", sizes: "32x32", type: "image/png" },
       { url: "/assets/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/assets/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any", type: "image/x-icon" },
     ],
-    apple: "/assets/apple-touch-icon.png",
+  },
+  openGraph: {
+    type: "website",
+    title: "Phornphat Lepkhrut | Frontend Developer & UX/UI Designer",
+    description: "Crafting seamless digital experiences.",
   },
 };
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  themeColor: "#041727",
-  colorScheme: "dark",
-};
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#0e0e0e", colorScheme: "dark" };
 
-export default async function RootLayout({ children }: { children: ReactNode }) {
-
-  await connection();
-
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={lineSeed.variable}>
+    <html lang="en" className={lineSeed.variable} data-theme="dark">
       <body>
-        <LanguageProvider>
-          <a
-            href="#main"
-            className="fixed left-3 -top-[60px] z-50 rounded-full bg-white px-4 py-2.5 font-bold text-navy transition-[top] duration-200 focus:top-3"
-          >
-            Skip to content
-          </a>
-          <div className="bg" aria-hidden="true" />
-          <StarField />
-          <div className="glow" aria-hidden="true" />
-          <Nav />
-          <ScrollSpy />
-          {children}
-        </LanguageProvider>
+        <div className="ambient" aria-hidden="true"><span className="ambient-orb ambient-orb--left" /><span className="ambient-orb ambient-orb--right" /></div>
+        <div className="intro" aria-hidden="true"><i /><i /></div>
+        <a href="#main" className="skip">Skip to content</a>
+        <Nav />
+        {children}
+        <FX />
       </body>
     </html>
   );
