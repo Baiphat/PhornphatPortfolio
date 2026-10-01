@@ -1,10 +1,8 @@
-const nav = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About me" },
-  { id: "skills", label: "Skills" },
-  { id: "certificates", label: "Certificates" },
-  { id: "work", label: "Work" },
-];
+"use client";
+
+import { useLanguage } from "@/components/LanguageProvider";
+import { messages } from "@/lib/i18n";
+
 const p = { fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" } as const;
 
 function InstagramIcon() {
@@ -31,21 +29,42 @@ const socials = [
 ] as const;
 
 export function Footer() {
+  const { language } = useLanguage();
+  const t = messages[language];
+  const nav = [
+    ["home", t.nav.home],
+    ["about", t.nav.about],
+    ["skills", t.nav.skills],
+    ["certificates", t.nav.certificates],
+    ["work", t.nav.work],
+  ];
+
   return (
     <footer id="contact" className="foot">
       <img src="/assets/logo.png" alt="Phornphat" className="flogo" />
-      <nav>{nav.map((item) => <a key={item.id} href={"#" + item.id}>{item.label}</a>)}</nav>
+      <nav>{nav.map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
+      <a className="email-link" href="mailto:phatengkub@gmail.com" aria-label={`${t.footer.emailMe}: phatengkub@gmail.com`}>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="m3 7 9 6 9-6" />
+        </svg>
+        <span className="email-link-copy">
+          <strong>{t.footer.emailMe}</strong>
+          <span>phatengkub@gmail.com</span>
+        </span>
+        <span className="email-link-arrow" aria-hidden="true">↗</span>
+      </a>
       <div className="social">
         {socials.map((item) => (
           <a key={item.id} href={item.href} aria-label={item.label} target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="20" height="20">{item.icon}</svg></a>
         ))}
       </div>
-      <a className="donate-btn" href="https://ezdn.app/baiphat" target="_blank" rel="noopener noreferrer" aria-label="Donate to Phornphat on EzyDonate">
+      <a className="donate-btn" href="https://ezdn.app/baiphat" target="_blank" rel="noopener noreferrer" aria-label={t.footer.donateAria}>
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 21s-8-4.7-8-11a4.5 4.5 0 0 1 8-2.9A4.5 4.5 0 0 1 20 10c0 6.3-8 11-8 11Z" /></svg>
-        <span>Donate Me</span>
+        <span>{t.footer.donate}</span>
       </a>
-      <p>© 2026 Phornphat Lepkhrut. All rights reserved.</p>
-      <small>Designed &amp; Developed with Passion</small>
+      <p>{t.footer.copyright}</p>
+      <small>{t.footer.credit}</small>
     </footer>
   );
 }

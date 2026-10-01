@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import type { ReactNode } from "react";
 import { FX } from "@/components/FX";
+import { LanguageProvider } from "@/components/LanguageProvider";
 import { Nav } from "@/components/Nav";
 import "./globals.css";
 
@@ -23,9 +24,8 @@ export const metadata: Metadata = {
   referrer: "strict-origin-when-cross-origin",
   icons: {
     icon: [
-      { url: "/assets/favicon-16.png", sizes: "16x16", type: "image/png" },
       { url: "/assets/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any", type: "image/x-icon" },
+      { url: "/assets/favicon.ico", sizes: "any", type: "image/x-icon" },
     ],
   },
   openGraph: {
@@ -39,14 +39,15 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1, them
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={lineSeed.variable} data-theme="dark">
+    <html lang="th" className={lineSeed.variable} data-theme="dark">
       <body>
         <div className="ambient" aria-hidden="true"><span className="ambient-orb ambient-orb--left" /><span className="ambient-orb ambient-orb--right" /></div>
         <div className="intro" aria-hidden="true"><i /><i /></div>
-        <a href="#main" className="skip">Skip to content</a>
-        <Nav />
-        {children}
-        <FX />
+        <LanguageProvider>
+          <Nav />
+          {children}
+          <FX />
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -1,22 +1,29 @@
+"use client";
+
+import { useLanguage } from "@/components/LanguageProvider";
+import { messages } from "@/lib/i18n";
 import { d } from "@/lib/d";
 import { icons } from "./SkillIcons";
 
 const rows = [
-  ["Development", ["TypeScript", "Next.JS", "TailwindCSS", "React"]],
-  ["UI / UX Design", ["Figma", "Photoshop", "Canva", "Framer"]],
-  ["Video Editor", ["Premiere Pro", "Davinci Resolve", "After effects"]],
+  ["development", ["TypeScript", "Next.JS", "TailwindCSS", "React"]],
+  ["design", ["Figma", "Photoshop", "Canva", "Framer"]],
+  ["video", ["Premiere Pro", "Davinci Resolve", "After effects"]],
 ] as const;
 
 export function Skills() {
+  const { language } = useLanguage();
+  const t = messages[language];
+
   return (
     <section id="skills" className="sec">
       <div className="wrap">
-        <h2 className="grad rv">SKILLS</h2>
-        <p className="sub rv" style={d(".08s")}>All the tools I use for my work</p>
+        <h2 className="grad rv">{t.skills.title}</h2>
+        <p className="sub rv" style={d(".08s")}>{t.skills.subtitle}</p>
         <div className="skill-rows">
           {rows.map(([label, items], r) => (
             <div className="skill-row" key={label}>
-              <h3 className="rv" style={d(`${r * 0.1}s`)}>{label}</h3>
+              <h3 className="rv" style={d(`${r * 0.1}s`)}>{t.skills[label]}</h3>
               <div className="tiles">
                 {items.map((n, i) => (
                   <div key={n} className="tile spot rv" style={d(`${r * 0.1 + i * 0.07}s`)}>
