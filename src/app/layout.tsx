@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { FX } from "@/components/FX";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { Nav } from "@/components/Nav";
+import { cookies } from 'next/headers';
 import "./globals.css";
 
 const lineSeed = localFont({
@@ -18,28 +19,48 @@ const lineSeed = localFont({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Phornphat Lepkhrut | Frontend Developer & UX/UI Designer",
-  description: "Phornphat Lepkhrut — Frontend Developer & UX/UI Designer crafting seamless digital experiences.",
-  referrer: "strict-origin-when-cross-origin",
-  icons: {
-    icon: [
-      { url: "/assets/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/assets/favicon.ico", sizes: "any", type: "image/x-icon" },
-    ],
-  },
-  openGraph: {
-    type: "website",
-    title: "Phornphat Lepkhrut | Frontend Developer & UX/UI Designer",
-    description: "Crafting seamless digital experiences.",
-  },
-};
+export async function generateMetadata() {
+  const cookieStore = await cookies();
+  const langCookie = cookieStore.get("portfolio-language");
+  const language = langCookie?.value === "th" ? "th" : "en"; // default to en if not th
+
+  const title = language === "th"
+    ? "ภรภัทร เล็บครุฑ | Frontend Developer & UX/UI Designer"
+    : "Phornphat Lepkhrut | Frontend Developer & UX/UI Designer";
+
+  const description = language === "th"
+    ? "ภรภัทร เล็บครุฑ — Frontend Developer & UX/UI Designer ผู้สร้างประสบการณ์ดิจิทัลที่ใช้งานได้จริง"
+    : "Phornphat Lepkhrut — Frontend Developer & UX/UI Designer crafting seamless digital experiences.";
+
+  return {
+    title,
+    description,
+    referrer: "strict-origin-when-cross-origin",
+    icons: {
+      icon: [
+        { url: "/assets/favicon-32.png", sizes: "32x32", type: "image/png" },
+        { url: "/assets/favicon.ico", sizes: "any", type: "image/x-icon" },
+      ],
+    },
+    openGraph: {
+      type: "website",
+      title,
+      description: language === "th"
+        ? "สร้างประสบการณ์ดิจิทัลที่ใช้งานได้จริง"
+        : "Crafting seamless digital experiences.",
+    },
+  };
+}
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#0e0e0e", colorScheme: "dark" };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const cookieStore = await cookies();
+  const langCookie = cookieStore.get("portfolio-language");
+  const language = langCookie?.value === "th" ? "th" : "en";
+
   return (
-    <html lang="th" className={lineSeed.variable} data-theme="dark">
+    <html lang={language} className={lineSeed.variable} data-theme="dark">
       <body>
         <div className="ambient" aria-hidden="true"><span className="ambient-orb ambient-orb--left" /><span className="ambient-orb ambient-orb--right" /></div>
         <div className="intro" aria-hidden="true"><i /><i /></div>

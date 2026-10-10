@@ -47,8 +47,8 @@ export const projects: Project[] = [
     sourceUrl: "https://github.com/Baiphat/PhornphatPortfolio",
     href: "https://phornphat.vercel.app/",
     translations: {
-      th: { cat: "เว็บไซต์", linkLabel: "เข้าเว็บไซต์" },
-      en: { cat: "Website", linkLabel: "Visit website" },
+      th: { name: "ภรภัทร Portfolio Website", cat: "เว็บไซต์", linkLabel: "เข้าเว็บไซต์" },
+      en: { name: "Phornphat Portfolio Website", cat: "Website", linkLabel: "Visit website" },
     },
   },
   {

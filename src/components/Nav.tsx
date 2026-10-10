@@ -61,7 +61,7 @@ export function Nav() {
       <a href="#main" className="skip">{t.nav.skip}</a>
       <header className={"nav" + (scrolled ? " scrolled" : "")}>
         <div className="nav-in">
-          <a href="#home" className="logo"><img src="/assets/logo.png" alt="Phornphat" /></a>
+          <a href="#home" className="logo"><img src="/assets/logo.png" alt={language === 'th' ? 'ภรภัทร' : 'Phornphat'} /></a>
           <nav ref={navRef} className={open ? "open" : ""} aria-label={t.nav.navLabel}>
             <span className="nav-active-indicator" aria-hidden="true" />
             {[

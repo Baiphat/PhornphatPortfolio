@@ -13,7 +13,7 @@ export function Hero() {
       <div className="wrap hero-in">
         <div>
           <p className="hi rise" style={d(".05s")}>{t.hero.greeting}</p>
-          <h1 className="grad rise" style={d(".15s")}>Phornphat</h1>
+          <h1 className="grad rise" style={d(".15s")}>{language === 'th' ? 'ภรภัทร' : 'PHORNPHAT'}</h1>
           <p className="lead rise" style={d(".3s")}>{t.hero.lead}</p>
           <div className="hero-actions rise" style={d(".4s")}>
             <a className="btn shine hero-project-link" href="#work">
@@ -31,7 +31,7 @@ export function Hero() {
         </div>
         <div className="photo rise" style={d(".3s")}>
           <div className="disc" />
-          <div className="cut"><img src="/assets/img/hero.png" alt="Phornphat" /></div>
+          <div className="cut"><img src="/assets/img/hero.png" alt={language === 'th' ? 'ภรภัทร' : 'PHORNPHAT'} /></div>
         </div>
       </div>
     </section>

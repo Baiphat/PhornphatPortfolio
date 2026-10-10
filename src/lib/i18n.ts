@@ -94,8 +94,8 @@ export const messages = {
     footer: {
       emailMe: "ติดต่อทางอีเมล",
       donate: "สนับสนุนผม",
-      donateAria: "สนับสนุน Phornphat ผ่าน EzyDonate",
-      copyright: "© 2026 Phornphat Lepkhrut. สงวนลิขสิทธิ์",
+      donateAria: "สนับสนุน ภรภัทร เล็บครุฑ ผ่าน EzyDonate",
+      copyright: "© 2026 ภรภัทร เล็บครุฑ. สงวนลิขสิทธิ์",
       credit: "ออกแบบและพัฒนาด้วยความตั้งใจ",
     },
     backToTop: "กลับขึ้นด้านบน",

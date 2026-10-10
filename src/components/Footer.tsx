@@ -41,7 +41,7 @@ export function Footer() {
 
   return (
     <footer id="contact" className="foot">
-      <img src="/assets/logo.png" alt="Phornphat" className="flogo" />
+      <img src="/assets/logo.png" alt={language === 'th' ? 'ภรภัทร' : 'Phornphat'} className="flogo" />
       <nav>{nav.map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
       <a className="email-link" href="mailto:phatengkub@gmail.com" aria-label={`${t.footer.emailMe}: phatengkub@gmail.com`}>
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

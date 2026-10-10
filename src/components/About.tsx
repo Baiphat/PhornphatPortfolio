@@ -14,13 +14,13 @@ export function About() {
       <div className="wrap about-in">
         <div className="photo rv">
           <div className="disc" />
-          <div className="cut"><img src="/assets/img/about.png" alt="Phornphat" loading="lazy" /></div>
+          <div className="cut"><img src="/assets/img/about.png" alt={language === 'th' ? 'ภรภัทร' : 'Phornphat'} loading="lazy" /></div>
         </div>
         <div>
           <h2 className="grad rv">{t.about.title}</h2>
           <p className="sub rv" style={d(".08s")}>{t.about.subtitle}</p>
           <div className="about-grid">
-            <Win title={t.about.name} className="full" style={d(".1s")}><p className="val">Phornphat Lepkhrut</p></Win>
+            <Win title={t.about.name} className="full" style={d(".1s")}><p className="val">{language === 'th' ? 'ภรภัทร เล็บครุฑ' : 'Phornphat Lepkhrut'}</p></Win>
             <Win title={t.about.nickname} style={d(".18s")}><p className="val">Phat</p></Win>
             <Win title={t.about.birthday} right={t.about.dateFormat} style={d(".24s")}><p className="val">{t.about.birthdayValue}</p></Win>
             <Win title={t.about.education} className="education" style={d(".3s")}><p className="val sm">{t.about.schoolName}</p></Win>
