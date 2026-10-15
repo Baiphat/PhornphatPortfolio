@@ -12,6 +12,6 @@ export const icons: Record<string, ReactNode> = {
   Canva: img("Frame-5.png", "Canva"),
   Framer: img("Frame-6.png", "Framer"),
   "Premiere Pro": img("Frame-9.png", "Premiere Pro"),
-  "Davinci Resolve": img("Frame.png", "DaVinci Resolve"),
-  "After effects": img("Frame-2.png", "After Effects"),
+  "DaVinci Resolve": img("Frame.png", "DaVinci Resolve"),
+  "After Effects": img("Frame-2.png", "After Effects"),
 };

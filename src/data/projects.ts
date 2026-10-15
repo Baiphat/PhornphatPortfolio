@@ -57,7 +57,7 @@ export const projects: Project[] = [
     cat: "Project",
     featured: true,
     video: "/assets/projects/fractured-sanity.mp4",
-    role: "Modeler, Texture Artist, Scriptor, and UI Designer",
+    role: "Modeler, Texture Artist, Scripter, and UI Designer",
     contributions: ["3D Modeling", "Texturing", "Scripting", "UI Design"],
     image: "/assets/projects/fractured-sanity.png",
     href: "https://www.roblox.com/games/100979745362137/Fractured-Sanity",
@@ -114,7 +114,7 @@ export const projects: Project[] = [
   },
   {
     id: "project-กท.-2",
-    name: "เว็ปแจ้งปัญหาอุปกรณ์ชำรุดและเหตุผิดระเบียบ",
+    name: "เว็บแจ้งปัญหาอุปกรณ์ชำรุดและเหตุผิดระเบียบ",
     description: "พัฒนาโดยกลุ่มนักเรียนพัฒนาระบบเทคโนโลยีสารสนเทศ",
     cat: "nn.",
     image: "/assets/projects/fondue.png",

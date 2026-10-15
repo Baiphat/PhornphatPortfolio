@@ -8,7 +8,7 @@ import { icons } from "./SkillIcons";
 const rows = [
   ["development", ["TypeScript", "Next.JS", "TailwindCSS", "React"]],
   ["design", ["Figma", "Photoshop", "Canva", "Framer"]],
-  ["video", ["Premiere Pro", "Davinci Resolve", "After effects"]],
+  ["video", ["Premiere Pro", "DaVinci Resolve", "After Effects"]],
 ] as const;
 
 export function Skills() {

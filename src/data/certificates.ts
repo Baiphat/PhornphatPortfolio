@@ -27,13 +27,13 @@ export function localizeCertificate(certificate: Certificate, language: Language
 export const certificates: Certificate[] = [
   {
     id: "cert-1",
-    title: "การอบรมเชิงปฏิบัตรการ “การควบคุมมอเตอร์และปั๊มนํ้าด้วย IOT”",
+    title: "การอบรมเชิงปฏิบัติการ “การควบคุมมอเตอร์และปั๊มน้ำด้วย IoT”",
     issuer: "คณะเทคโนโลยีอุตสาหกรรม มหาวิทยาลัยราชภัฏพระนคร",
     year: "2026",
-    description: "จากการอบรมเชิงปฏิบัติการนี้ ผู้เข้าร่วมจะได้เรียนรู้เกี่ยวกับการควบคุมมอเตอร์และปั๊มนํ้าผ่านเทคโนโลยี Internet of Things (IoT) โดยมีการสอนทฤษฎีและการปฏิบัติจริงในการสร้างระบบควบคุมที่สามารถตรวจสอบและจัดการอุปกรณ์จากระยะไกลได้",
+    description: "จากการอบรมเชิงปฏิบัติการนี้ ผู้เข้าร่วมจะได้เรียนรู้เกี่ยวกับการควบคุมมอเตอร์และปั๊มน้ำผ่านเทคโนโลยี Internet of Things (IoT) โดยมีการสอนทฤษฎีและการปฏิบัติจริงในการสร้างระบบควบคุมที่สามารถตรวจสอบและจัดการอุปกรณ์จากระยะไกลได้",
     image: "/assets/certificates/ratchapat.jpg",
     verifyUrl: "https://e-cert.ntuniso.net/",
-    tags: ["IOT", "ESP32", "C Language", "Arduino IDE"],
+    tags: ["IoT", "ESP32", "C Language", "Arduino IDE"],
     translations: {
       th: {
         title: "อบรมการควบคุมมอเตอร์และปั๊มน้ำด้วย IoT",
@@ -55,7 +55,7 @@ export const certificates: Certificate[] = [
     description: "ได้เรียนรู้การพัฒนาเกมผีด้วย Roblox Studio พร้อมทั้งฝึกทักษะการออกแบบเกม การเขียนโค้ด และการทำงานร่วมกันในทีม เพื่อสร้างประสบการณ์การเล่นเกมที่น่าสนใจและมีคุณภาพ",
     image: "/assets/certificates/gamepee.jpg",
     verifyUrl: "https://e-cert.ntuniso.net/",
-    tags: ["Hamster Hub", "Roblox studio", "Lua", "Game Development"],
+    tags: ["Hamster Hub", "Roblox Studio", "Lua", "Game Development"],
     translations: {
       th: { tags: ["Hamster Hub", "Roblox Studio", "Lua", "พัฒนาเกม"] },
       en: {
@@ -67,13 +67,13 @@ export const certificates: Certificate[] = [
   {
     id: "cert-3",
     title: "กลุ่มนักเรียนพัฒนาระบบเทคโนโลยีสารสนเทศ",
-    issuer: "โรงเรียนนวมินทราชูทิศ เตรียมอุดมศึกษาน้อมเกล้า",
+    issuer: "โรงเรียนนวมินทราชินูทิศ เตรียมอุดมศึกษาน้อมเกล้า",
     year: "2026",
     description: "ได้ปฏิบัติหน้าที่ในตำแหน่งนักออกแบบกราฟิก และพัฒนาระบบเทคโนโลยีสารสนเทศ โดยมีส่วนร่วมในการสร้างสรรค์งานออกแบบกราฟิกและพัฒนาระบบที่เกี่ยวข้องกับเทคโนโลยีสารสนเทศ เพื่อสนับสนุนการเรียนรู้และการทำงานของกลุ่มนักเรียน",
     image: "/assets/certificates/graphic.jpg",
-    tags: ["Graphic Design", "กท.", "Technology", "โรงเรียนนวมินทราชูทิศ เตรียมอุดมศึกษาน้อมเกล้า"],
+    tags: ["Graphic Design", "กท.", "Technology", "โรงเรียนนวมินทราชินูทิศ เตรียมอุดมศึกษาน้อมเกล้า"],
     translations: {
-      th: { tags: ["ออกแบบกราฟิก", "กท.", "เทคโนโลยี", "โรงเรียนนวมินทราชูทิศ เตรียมอุดมศึกษาน้อมเกล้า"] },
+      th: { tags: ["ออกแบบกราฟิก", "กท.", "เทคโนโลยี", "โรงเรียนนวมินทราชินูทิศ เตรียมอุดมศึกษาน้อมเกล้า"] },
       en: {
         title: "Student Information Technology Development Group",
         issuer: "Nawamintrachinuthit Triamudomsuksanomklao School",

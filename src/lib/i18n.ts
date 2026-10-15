@@ -32,7 +32,7 @@ export const messages = {
       dateFormat: "ว/ด/ป",
       birthdayValue: "6 ตุลาคม 2010",
       education: "โรงเรียน",
-      schoolName: "โรงเรียนนวมินทราชูทิศ เตรียมอุดมศึกษาน้อมเกล้า",
+      schoolName: "โรงเรียนนวมินทราชินูทิศ เตรียมอุดมศึกษาน้อมเกล้า",
       location: "ที่อยู่",
       locationValue: "กรุงเทพฯ, ประเทศไทย",
       journeyKicker: "เส้นทางจากงานออกแบบสู่งานพัฒนา",
