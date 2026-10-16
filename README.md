@@ -28,14 +28,7 @@ Live Demo: https://phornphat.vercel.app
 
 ---------------------------------------------------
 
-## Getting Started
-
-หากต้องการรันโปรเจกต์นี้ในเครื่องตัวเอง:
-
-1. Clone repository
-```bash
-git clone [https://github.com/Baiphat/PhornphatPortfolio.git](https://github.com/Baiphat/PhornphatPortfolio.git)
-cd PhornphatPortfolio
+## Contact
 
 Facebook: Phornphat Lepkhrut (https://www.facebook.com/PhornphatLepkhrut)
 
